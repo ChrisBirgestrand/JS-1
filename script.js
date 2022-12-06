@@ -11,12 +11,12 @@ function atm() {
     var response = (prompt("Hello " + message + "!" + " What would you like to do today?" + " 1. balance" + " 2. account" + " 3. deposit" + " 4. withdraw"));
     if (response == "balance") {
       prompt("Your current balance is " + account.balance);
-    } else if (response == "account") {
+    } else if (response === "account") {
       prompt("Your account information is the following: " + "Your name: " + account.accountName + " and your current balance is: " + account.balance) + " You can always exit by typing exit";
-    } else if (response == "deposit") {
+    } else if (response === "deposit") {
       //parseFloat helps define the variable as number instead of string to be able to add the math ex. 1000 + 500 = 1500 instead of 1000500. The official parseFloat makes it add "," to numbers
       var deposit = parseFloat(prompt("How much would you like to deposit?" + " You can always exit by typing exit"));
-    } else if (response == "withdraw") {
+    } else if (response === "withdraw") {
       var withdraw = parseFloat(prompt("How much would you like to withdraw?" + " You can always exit by typing exit"));
     } else if (response != "balance" || "account" || "deposit" || "withdraw" || "chris") {
       prompt("Sorry that's not a valid option");
