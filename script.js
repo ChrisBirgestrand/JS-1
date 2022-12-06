@@ -8,7 +8,7 @@ const account = {
 
 function atm() {
     var message = (prompt("What is your name?"));
-    var response = (prompt("Hello " + message + "!" + " What would you like to do today?"));
+    var response = (prompt("Hello " + message + "!" + " What would you like to do today?" + " 1. balance" + " 2. account" + " 3. deposit" + " 4. withdraw"));
     if (response == "balance") {
       prompt("Your current balance is " + account.balance);
     } else if (response == "account") {
