@@ -12,12 +12,12 @@ function atm() {
     if (response == "balance") {
       prompt("Your current balance is " + account.balance);
     } else if (response == "account") {
-      prompt("Your account information is the following: " + "Your name: " + account.accountName + " and your current balance is: " + account.balance) + "You can always exit by typing exit";
+      prompt("Your account information is the following: " + "Your name: " + account.accountName + " and your current balance is: " + account.balance) + " You can always exit by typing exit";
     } else if (response == "deposit") {
-      //parseFloat helps define the variable as number instead of string to be able to add the math ex. 1000 + 500 = 1500 instead of 1000500
-      var deposit = parseFloat(prompt("How much would you like to deposit?" + "You can always exit by typing exit"));
+      //parseFloat helps define the variable as number instead of string to be able to add the math ex. 1000 + 500 = 1500 instead of 1000500. The official parseFloat makes it add "," to numbers
+      var deposit = parseFloat(prompt("How much would you like to deposit?" + " You can always exit by typing exit"));
     } else if (response == "withdraw") {
-      var withdraw = parseFloat(prompt("How much would you like to withdraw?" + "You can always exit by typing exit"));
+      var withdraw = parseFloat(prompt("How much would you like to withdraw?" + " You can always exit by typing exit"));
     } else if (response != "balance" || "account" || "deposit" || "withdraw" || "chris") {
       prompt("Sorry that's not a valid option");
       throw "exit";
@@ -74,7 +74,7 @@ atm();
 // this function should display the total amount of the account to the user
 
 
-parseFloat
+
 // - deposit, also a function
 // this function should be able to deposit money onto the balance of the account
 
