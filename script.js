@@ -27,7 +27,7 @@ function atm() {
     } if (withdraw) {
       let y = account.balance - withdraw;
       prompt("Your new balance is: " + y)
-    }  
+    } 
 }
 atm();
     //I use if/else statements because it's easier for me to understand where the breakpoint is and make it more readable.
