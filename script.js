@@ -1,33 +1,52 @@
 
 
 const account = {
-  accountName: "Chris",
+  accountName: "chris",
   balance: 10000,
+  getBalance: function () {
+    prompt("Your current balance is: " + this.balance);
+    atm();
+  },
+  getAccount: function () {
+    prompt("Your account information is: " + this.accountName);
+    this.getBalance();
+  },
+  deposit: function () {
+    let deposit = parseFloat(prompt("How much would you like to deposit?"))
+    if (deposit === NaN) {
+      prompt("Sorry, please try to use numbers");
+    } else if (deposit) {
+      this.balance += deposit;
+      this.getBalance();
+    }
+  },
+  withdraw: function () {
+    let withdraw = (prompt("How much would you like to withdraw?"))
+    if (withdraw === NaN) {
+      prompt("Sorry, please try to use numbers");
+    } else if (withdraw) {
+      this.balance -= withdraw;
+      this.getBalance();
+    }
+  }
 }
 
 
 function atm() {
-    var message = (prompt("What is your name?"));
-    var response = (prompt("Hello " + message + "!" + " What would you like to do today?" + " 1. balance" + " 2. account" + " 3. deposit" + " 4. withdraw"));
-    if (response == "balance") {
-      prompt("Your current balance is " + account.balance);
-    } else if (response === "account") {
-      prompt("Your account information is the following: " + "Your name: " + account.accountName + " and your current balance is: " + account.balance) + " You can always exit by typing exit";
-    } else if (response === "deposit") {
-      //parseFloat helps define the variable as number instead of string to be able to add the math ex. 1000 + 500 = 1500 instead of 1000500. The official parseFloat makes it add "," to numbers
-      var deposit = parseFloat(prompt("How much would you like to deposit?" + " You can always exit by typing exit"));
-    } else if (response === "withdraw") {
-      var withdraw = parseFloat(prompt("How much would you like to withdraw?" + " You can always exit by typing exit"));
-    } else if (response != "balance" || "account" || "deposit" || "withdraw" || "chris") {
-      prompt("Sorry that's not a valid option");
-      throw "exit";
-    } if (deposit) {
-      let x = account.balance + deposit;
-      prompt("Your new balance is: " + x)
-    } if (withdraw) {
-      let y = account.balance - withdraw;
-      prompt("Your new balance is: " + y)
-    } 
+    const message = (prompt("What is your name?"));
+    const response = parseInt(prompt(`Hello ${message}! what would you like to do today? 1. balance 2. account 3. deposit 4. withdraw`));
+    if (response === 1) {
+      account.getBalance();
+    } else if (response === 2) {
+      account.getAccount();
+    } else if (response === 3) {
+      account.deposit();
+    } else if (response === 4) {
+      account.withdraw();
+    } else if (response >= 5) {
+      prompt("Sorry, please choose a number 1-4");
+      atm();
+    }
 }
 atm();
     //I use if/else statements because it's easier for me to understand where the breakpoint is and make it more readable.
@@ -35,7 +54,25 @@ atm();
 
 
 
-
+//if (response === "balance") {
+//      prompt("Your current balance is " + account.balance);
+//    } else if (response === "account") {
+//      prompt("Your account information is the following: " + "Your name: " + account.accountName + " and your current balance is: " + account.balance) + " You can always exit by typing exit";
+//    } else if (response === "deposit") {
+//      //parseFloat helps define the variable as number instead of string to be able to add the math ex. 1000 + 500 = 1500 instead of 1000500. The official parseFloat makes it add "," to numbers
+//      const deposit = parseFloat(prompt("How much would you like to deposit?" + " You can always exit by typing exit"));
+//    } else if (response === "withdraw") {
+//      const withdraw = parseFloat(prompt("How much would you like to withdraw? Your current balance is " + account.balance + " You can always exit by typing exit"));
+//    } else if (response != "balance" || "account" || "deposit" || "withdraw" || "chris") {
+//      prompt("Sorry that's not a valid option");
+//      throw "exit";
+//    } if (deposit) {
+//      let x = account.balance + deposit;
+//      prompt("Your new balance is: " + x)
+//    } if (withdraw) {
+//      let y = account.balance - withdraw;
+//      prompt("Your new balance is: " + y)
+//    } 
 
 
 
@@ -137,8 +174,8 @@ atm();
 // to the console. But you will use prompt instead of just regular console.
 
 // to handle one of the potential errors you can use this built in method isNaN(), this is how you use it:
-const variableName = 10;
-isNaN(variableName);
+//const variableName = 10;
+//isNaN(variableName);
 
 // this is the function atm(), I've created some start code for you
 
